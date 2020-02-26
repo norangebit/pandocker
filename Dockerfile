@@ -15,6 +15,7 @@ RUN wget  \
 RUN tlmgr install xifthen \
                   moderncv \
                   ifmtarg \
+                  fontawesome \
                   || exit 1
 
 WORKDIR /data
