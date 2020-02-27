@@ -5,8 +5,7 @@ RUN tlmgr update --self
 RUN apk --no-cache add make
 
 WORKDIR /.local/share/pandoc/templates
-RUN wget  \
-    https://git.norangeb.it/norangebit/pancv/raw/branch/master/pancv.tex  \
+RUN wget https://git.norangeb.it/norangebit/pancv/raw/branch/master/pancv.tex  \
     -O pancv.latex
 
 # drone compatibility
@@ -17,6 +16,7 @@ RUN cp /.local/share/pandoc/templates/*.latex /root/.pandoc/templates
 RUN tlmgr install moderncv \
                   ifmtarg \
                   fontawesome \
+                  marvosym \
                   || exit 1
 
 # europasscv
