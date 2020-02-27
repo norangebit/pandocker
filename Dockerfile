@@ -1,5 +1,7 @@
 FROM pandoc/latex
 
+RUN tlmgr update --self
+
 RUN apk --no-cache add make
 
 WORKDIR /.local/share/pandoc/templates
@@ -15,6 +17,16 @@ RUN cp /.local/share/pandoc/templates/*.latex /root/.pandoc/templates
 RUN tlmgr install moderncv \
                   ifmtarg \
                   fontawesome \
+                  || exit 1
+
+# europasscv
+RUN tlmgr install xifthen \
+                  europasscv \
+                  soul \
+                  enumitem \
+                  substr \
+                  lastpage \
+                  helvetic \
                   || exit 1
 
 WORKDIR /data
