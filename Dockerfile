@@ -17,6 +17,7 @@ RUN tlmgr install moderncv \
                   ifmtarg \
                   fontawesome \
                   marvosym \
+                  xstring \
                   || exit 1
 
 # europasscv
